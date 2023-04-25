@@ -7,12 +7,16 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log("böyle bi şey geldi:", action);
   switch (action.type) {
     case DELETE_MOVIE:
       return {
         ...state,
-        movies: state.movies.filter((item) => action.payload !== item.id),
+        movies: state.movies.filter(
+          (item) => parseInt(action.payload) !== item.id
+        ),
       };
+
     default:
       return state;
   }
