@@ -10,6 +10,10 @@ const Movie = (props) => {
   const dispatch = useDispatch();
   let history = useHistory();
 
+  const displayFavorites = useSelector(
+    (store) => store.favorites.displayFavorites
+  );
+
   const movies = useSelector((store) => store.movies.movies);
   console.log(movies);
   const movie = movies.find((movie) => movie.id === Number(id));
@@ -49,12 +53,16 @@ const Movie = (props) => {
         >
           Sil
         </button>
-        <button
-          onClick={() => dispatch(addFavorite(movie), history.push("/movies"))}
-          className="myButton bg-blue-600 hover:bg-blue-500 "
-        >
-          Favorilere ekle
-        </button>
+        {displayFavorites && (
+          <button
+            onClick={() =>
+              dispatch(addFavorite(movie), history.push("/movies"))
+            }
+            className="myButton bg-blue-600 hover:bg-blue-500 "
+          >
+            Favorilere ekle
+          </button>
+        )}
       </div>
     </div>
   );
