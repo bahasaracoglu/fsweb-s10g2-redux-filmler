@@ -24,6 +24,14 @@ const favoritesReducer = (state = initialState, action) => {
         favorites: [...state.favorites, action.payload],
       };
 
+    case REMOVE_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.filter(
+          (movie) => movie.id !== parseInt(action.payload)
+        ),
+      };
+
     default:
       return state;
   }
