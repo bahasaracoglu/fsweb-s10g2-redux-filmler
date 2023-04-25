@@ -17,12 +17,12 @@ const favoritesReducer = (state = initialState, action) => {
         ...state,
         displayFavorites: !state.displayFavorites,
       };
-    /*
-      case ADD_MOVIE:
-       return {
-          ...state,
-          movies: [...movies, action.payload],
-        };*/
+
+    case ADD_FAVORITE:
+      return {
+        ...state,
+        favorites: [...state.favorites, action.payload],
+      };
 
     default:
       return state;
