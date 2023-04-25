@@ -9,7 +9,7 @@ const Movie = (props) => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const movies = useSelector((store) => store.movies);
+  const movies = useSelector((store) => store.movies.movies);
   console.log(movies);
   const movie = movies.find((movie) => movie.id === Number(id));
 
