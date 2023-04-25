@@ -5,7 +5,7 @@ import { deleteMovie } from "../actions/movieActions";
 
 const Movie = (props) => {
   const { id } = useParams();
-  const { push } = useHistory();
+
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -42,7 +42,7 @@ const Movie = (props) => {
       </div>
       <div className="px-5 py-3 border-t border-zinc-200 flex justify-end gap-2">
         <button
-          onClick={() => dispatch(deleteMovie(id), history.push("/home"))}
+          onClick={() => dispatch(deleteMovie(id), history.push("/movies"))}
           type="button"
           className="myButton bg-red-600 hover:bg-red-500"
         >
