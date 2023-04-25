@@ -19,12 +19,20 @@ const favoritesReducer = (state = initialState, action) => {
       };
 
     case ADD_FAVORITE:
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload],
-      };
+      const isAlreadyInFavorites = state.favorites.some(
+        (movie) => movie.title === action.payload.title
+      );
+      if (isAlreadyInFavorites) {
+        return state;
+      } else {
+        return {
+          ...state,
+          favorites: [...state.favorites, action.payload],
+        };
+      }
 
     case REMOVE_FAVORITE:
+      console.log("remove fav çalıştı");
       return {
         ...state,
         favorites: state.favorites.filter(

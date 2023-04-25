@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleFavorites } from "../actions/favoritesActions";
 
-const MovieHeader = (props) => {
+const MovieHeader = () => {
   const appTitle = useSelector((store) => store.movies.appTitle);
   const displayFavorites = useSelector(
     (store) => store.favorites.displayFavorites

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeFavorite } from "../actions/favoritesActions";
 
-const FavoriteMovieList = (props) => {
+const FavoriteMovieList = () => {
   const favorites = useSelector((store) => store.favorites.favorites);
   console.log(favorites);
 

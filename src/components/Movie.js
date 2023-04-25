@@ -2,9 +2,9 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteMovie } from "../actions/movieActions";
-import { addFavorite } from "../actions/favoritesActions";
+import { addFavorite, removeFavorite } from "../actions/favoritesActions";
 
-const Movie = (props) => {
+const Movie = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -47,7 +47,11 @@ const Movie = (props) => {
       </div>
       <div className="px-5 py-3 border-t border-zinc-200 flex justify-end gap-2">
         <button
-          onClick={() => dispatch(deleteMovie(id), history.push("/movies"))}
+          onClick={() => {
+            dispatch(deleteMovie(id));
+            dispatch(removeFavorite(id));
+            history.push("/movies");
+          }}
           type="button"
           className="myButton bg-red-600 hover:bg-red-500"
         >
