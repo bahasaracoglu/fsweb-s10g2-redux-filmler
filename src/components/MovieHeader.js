@@ -1,18 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleFavorites } from "../actions/favoritesActions";
 
 const MovieHeader = (props) => {
   const appTitle = useSelector((store) => store.movies.appTitle);
   const displayFavorites = useSelector(
     (store) => store.favorites.displayFavorites
   );
+  const dispatch = useDispatch();
 
   return (
     <div className="flex justify-between items-center shadow rounded-md bg-white p-2 pl-3 my-3">
       <h2 className="text-zinc-600">{appTitle}</h2>
       <div className="flex items-center gap-2">
-        <div className="myButton bg-blue-600 hover:bg-blue-500">
+        <div
+          onClick={() => dispatch(toggleFavorites())}
+          className="myButton bg-blue-600 hover:bg-blue-500"
+        >
           <span>Favorileri {displayFavorites ? "gizle" : "göster"}</span>
         </div>
         <Link to="/movies" className="myButton bg-blue-600 hover:bg-blue-500">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addMovie } from "./../actions/movieActions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 const AddMovieForm = (props) => {

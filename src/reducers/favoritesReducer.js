@@ -1,3 +1,9 @@
+import {
+  TOGGLE_FAVORITES,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+} from "../actions/favoritesActions";
+
 const initialState = {
   favorites: [],
   displayFavorites: true,
@@ -6,14 +12,12 @@ const initialState = {
 const favoritesReducer = (state = initialState, action) => {
   console.log("böyle bi şey geldi:", action);
   switch (action.type) {
-    /*case "DELETE_MOVIE":
-     return {
-          ...state,
-          movies: state.movies.filter(
-            (item) => parseInt(action.payload) !== item.id
-          ),
-        };
-
+    case TOGGLE_FAVORITES:
+      return {
+        ...state,
+        displayFavorites: !state.displayFavorites,
+      };
+    /*
       case ADD_MOVIE:
        return {
           ...state,
