@@ -6,10 +6,10 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import rootReducer from "./reducers";
+import { createStore } from "redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = createStore(rootReducer);
